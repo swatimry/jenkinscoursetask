@@ -40,12 +40,13 @@
 
 pipeline {
     agent any
+
     environment {
         PYTHON_PATH = 'C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python313;C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python313\\Scripts'
-        set PATH=%PYTHON_PATH%;%PATH%
+        PATH = "${PYTHON_PATH};${env.PATH}"
     }
-    stages 
-       stages {
+
+    stages {
         stage('Check Python') {
             steps {
                 bat 'python --version'
@@ -57,13 +58,6 @@ pipeline {
             }
         }
     }
-
-        
-
-       
-
-     
-
-    
-    
 }
+
+ 
