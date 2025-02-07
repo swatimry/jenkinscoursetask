@@ -15,7 +15,7 @@
     } 
 }  
 */
-pipeline {
+/*pipeline {
     agent any
  
     stages {
@@ -36,4 +36,34 @@ pipeline {
             }
         }
     }
+}*/
+
+pipeline {
+    agent any
+    environment {
+        PYTHON_PATH = 'C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python313;C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python313\\Scripts'
+        set PATH=%PYTHON_PATH%;%PATH%
+    }
+    stages 
+       stages {
+        stage('Check Python') {
+            steps {
+                bat 'python --version'
+            }
+        }
+        stage('Execute Python') {
+            steps {
+                bat 'python hello.py'
+            }
+        }
+    }
+
+        
+
+       
+
+     
+
+    
+    
 }
